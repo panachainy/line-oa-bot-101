@@ -11,11 +11,5 @@ func SetupRoutes(app *fiber.App) {
 		return c.SendString("OK")
 	})
 
-	app.Get("/products", handler.GetProducts)
-
-	app.Get("/products/:id", handler.GetProduct)
-
-	app.Post("/products", handler.CreateProduct)
-
-	app.Delete("/products/:id", handler.DeleteProduct)
+	app.Get("/line-webhooks", handler.LineWebhooks)
 }

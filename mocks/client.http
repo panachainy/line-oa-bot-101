@@ -1,0 +1,26 @@
+#@baseUrl=""
+@baseUrl="http://localhost:5000"
+
+### get product
+curl "{{baseUrl}}/products"
+
+### get product by id
+curl "{{baseUrl}}/products/1"
+
+### create product
+curl -X POST "{{baseUrl}}/products" \
+    -H 'Content-Type: application/json' \
+    -d '{"code":"MEN","price":123123,"priceDetailJa":-22}'
+
+### invalid type price case
+curl -X POST "{{baseUrl}}/products" \
+    -H 'Content-Type: application/json' \
+    -d '{"code":"MEN","price":-123123,"priceDetailJa":22}'
+
+### invalid validate code case
+curl -X POST "{{baseUrl}}/products" \
+    -H 'Content-Type: application/json' \
+    -d '{"code":"ME","price":222111,"priceDetailJa":-22}'
+
+### delete product by id
+curl -X DELETE "{{baseUrl}}/products/1"
